@@ -63,6 +63,9 @@ export function chromeInit() {
        * Restore app URL hash fragment after the global filter is disabled
        */
       if (initialHash) {
+        /* TODO: JSFIX could not patch the breaking change:
+        Removed relative pathname support in hash history and memory history 
+        Suggested fix: Relative paths are no longer supportet by the hash/memory history, hence we recommend using the entire path name instead. */
         chromeHistory.replace({
           ...chromeHistory.location,
           hash: initialHash,
